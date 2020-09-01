@@ -1,0 +1,22 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="libs\LibStub\LibStub.lua"/>
+	<Include file="libs\LibDataBroker\Load.xml"/>
+	<Script file="libs\LibDBIcon-1.0\LibDBIcon-1.0.lua"/>
+  <Script file="LootFast2.lua"/>
+  <Script file="LootFast2_Config.lua"/>
+  <Script file="LootFast2_Minimap.lua"/>
+  <Frame name="LootFast2_Frame">
+    <Scripts>
+	    <OnLoad>
+	      LootFast2.Load(self);
+	    </OnLoad>
+      <OnUpdate>
+				LootFast2.Update();
+      </OnUpdate>
+      <OnEvent>
+				LootFast2.OnEvent(event, ...);
+      </OnEvent>
+	  </Scripts>
+  </Frame>
+</Ui>

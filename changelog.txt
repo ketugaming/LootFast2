@@ -1,0 +1,19 @@
+LootFast2 Change Log
+
+v7.2.0.04112017-1
+BUG FIX: price compare number to nil error.
+
+v7.2.0.04112017
+Bump TOC
+Added ability to loot by sell price.
+Added slash command /lf sp for sell price configuration.
+Added GUI Config options to support sell price filter.
+
+v7.1.5.01192017
+Add lib support to integrate with other addons/libs such as SlideBar.
+
+v7.1.0.01132017
+BUG Fix: Error when looting artifacts.
+
+v7.1.0.12232016
+Initial Release of original rewrite.

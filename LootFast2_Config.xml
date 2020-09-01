@@ -1,0 +1,526 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="LootFast2_Config.lua"/>
+	<!--Main Config-->
+	<Button name="LFNameBarTemplate" motionScriptsWhileDisabled="true" virtual="true">
+		<Size>
+			<AbsDimension x="555" y="20"/>
+		</Size>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture atlas="PetList-ButtonBackground" />
+			</Layer>
+			<Layer level="OVERLAY">
+				<FontString name="$parentItemName" inherits="GameFontHighlightSmall" justifyH="LEFT">
+					<Size x="250" y="10"/>
+					<Anchors>
+						<Anchor point="LEFT">
+							<Offset>
+								<AbsDimension x="10" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentItemNameValue" inherits="GameFontHighlightSmall" justifyH="LEFT">
+					<Size x="200" y="10"/>
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentItemName" relativePoint="RIGHT">
+							<Offset>
+								<AbsDimension x="10" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Button name="$parentRemoveBtn" inherits="OptionsButtonTemplate" text="x">
+				<Size>
+					<AbsDimension x="20" y="20"/>
+				</Size>
+				<Anchors>
+						<Anchor point="RIGHT" relativeTo="$parent" relativePoint="RIGHT">
+							<Offset>
+								<AbsDimension x="-20" y="0"/>
+							</Offset>
+						</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						LootFast2.Config.NameListItemDeleteClick(self,button);
+					</OnClick>
+					<OnLoad>
+						self:RegisterForClicks("LeftButtonUp");
+					</OnLoad>
+				</Scripts>
+			</Button>
+		</Frames>
+		<HighlightTexture atlas="PetList-ButtonHighlight" />
+		<Scripts>
+			<OnClick>
+				LootFast2.Config.NameListItemClick(self,button);
+			</OnClick>
+			<OnLoad>
+				self:RegisterForClicks("LeftButtonUp");
+			</OnLoad>
+		</Scripts>
+	</Button>
+	
+	<Frame name="LootFastConfig">
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="-10"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentSubTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="-25"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentMinimapTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="20" y="-50"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentEnabledTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="20" y="-75"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentCloseTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="20" y="-100"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentLootStateTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="20" y="-125"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentQualityTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="20" y="-150"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentQualityMoney" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="30" y="-175"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentQualityPoor" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="30" y="-200"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentQualityCommon" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="30" y="-225"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentQualityUncommon" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="30" y="-250"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentQualityRare" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="30" y="-275"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentQualityEpic" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="30" y="-300"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentQualityLegendary" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="30" y="-325"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentSellPriceTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="50" y="-150"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentSellPriceStatus" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="$parentSellPriceTitle" relativePoint="RIGHT">
+							<Offset>
+								<AbsDimension x="20" y="-2"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentSPGold" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentSellPriceTitle" relativePoint="LEFT">
+							<Offset>
+								<AbsDimension x="20" y="-20" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentSPSilver" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentSPGold" relativePoint="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="0" y="-10" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentSPCopper" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentSPSilver" relativePoint="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="0" y="-10" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentSPNote" inherits="GameFontNormal" >
+					<Anchors>
+						<Anchor point="TOPLEFT" relativeTo="$parentSPCopper" relativePoint="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="0" y="-10" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentNameTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="20" y="-350"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentNameInputTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="50" y="-375"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentNameCommandTitle" inherits="GameFontNormal">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="300" y="-375"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<CheckButton name="$parent_MinimapCB" inherits="OptionsCheckButtonTemplate">
+       <Anchors>
+          <Anchor point="LEFT" relativeTo="$parentMinimapTitle" relativePoint="RIGHT">
+            <Offset>
+            	<AbsDimension  x="0" y="-2"/>
+          	</Offset>
+        	</Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+          	LootFast2.Config.MinimapCBToggle(self)
+        	</OnClick>
+      	</Scripts>
+      </CheckButton>
+      <CheckButton name="$parent_EnabledCB" inherits="OptionsCheckButtonTemplate">
+       <Anchors>
+          <Anchor point="LEFT" relativeTo="$parentEnabledTitle" relativePoint="RIGHT">
+            <Offset>
+            	<AbsDimension  x="0" y="-2"/>
+          	</Offset>
+        	</Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+          	LootFast2.Config.EnabledCBToggle(self)
+        	</OnClick>
+      	</Scripts>
+      </CheckButton>
+      <!-- Sell Price -->
+      <EditBox name="$parent_SPGoldEB" autoFocus="false">
+      	<Size x="100" y="24" />
+      	<Anchors>
+          <Anchor point="LEFT" relativeTo="$parentSPGold" relativePoint="RIGHT">
+            <Offset>
+            	<AbsDimension  x="0" y="0"/>
+          	</Offset>
+        	</Anchor>
+        </Anchors>
+      	<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+        	<BackgroundInsets>
+        		<AbsInset left="2" right="2" top="2" bottom="2" />
+        	</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="16" />
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="16" />
+					</EdgeSize>
+					<Color r="0" g="0" b="0" a="0.8" />
+					<BorderColor r="1" g="1" b="1" a="0.8" />
+        </Backdrop>
+        <TextInsets>
+        	<AbsInset left="8" right="8" top="0" bottom="0" />
+        </TextInsets>
+        <Scripts>
+	        <OnLoad>
+	        </OnLoad>
+	  	  </Scripts>
+	    	<FontString inherits="ChatFontNormal" />
+      </EditBox>
+      <EditBox name="$parent_SPSilverEB" autoFocus="false">
+      	<Size x="100" y="24" />
+      	<Anchors>
+          <Anchor point="LEFT" relativeTo="$parentSPSilver" relativePoint="RIGHT">
+            <Offset>
+            	<AbsDimension  x="0" y="0"/>
+          	</Offset>
+        	</Anchor>
+        </Anchors>
+      	<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+        	<BackgroundInsets>
+        		<AbsInset left="2" right="2" top="2" bottom="2" />
+        	</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="16" />
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="16" />
+					</EdgeSize>
+					<Color r="0" g="0" b="0" a="0.8" />
+					<BorderColor r="1" g="1" b="1" a="0.8" />
+        </Backdrop>
+        <TextInsets>
+        	<AbsInset left="8" right="8" top="0" bottom="0" />
+        </TextInsets>
+        <Scripts>
+	        <OnLoad>
+	        </OnLoad>
+	  	  </Scripts>
+	    	<FontString inherits="ChatFontNormal" />
+      </EditBox>
+      <EditBox name="$parent_SPCopperEB" autoFocus="false">
+      	<Size x="100" y="24" />
+      	<Anchors>
+          <Anchor point="LEFT" relativeTo="$parentSPCopper" relativePoint="RIGHT">
+            <Offset>
+            	<AbsDimension  x="0" y="0"/>
+          	</Offset>
+        	</Anchor>
+        </Anchors>
+      	<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+        	<BackgroundInsets>
+        		<AbsInset left="2" right="2" top="2" bottom="2" />
+        	</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="16" />
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="16" />
+					</EdgeSize>
+					<Color r="0" g="0" b="0" a="0.8" />
+					<BorderColor r="1" g="1" b="1" a="0.8" />
+        </Backdrop>
+        <TextInsets>
+        	<AbsInset left="8" right="8" top="0" bottom="0" />
+        </TextInsets>
+        <Scripts>
+	        <OnLoad>
+	        </OnLoad>
+	  	  </Scripts>
+	    	<FontString inherits="ChatFontNormal" />
+      </EditBox>
+      <Button name="$parent_SPSaveButton" inherits="OptionsButtonTemplate" text="Set Threshold">
+       <Anchors>
+          <Anchor point="LEFT" relativeTo="$parent_SPSilverEB" relativePoint="RIGHT">
+            <Offset>
+            	<AbsDimension x="20" y="0"/>
+          	</Offset>
+        	</Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+          	LootFast2.Config.SetPriceThresholdButtonClick()
+        	</OnClick>
+      	</Scripts>
+      </Button>
+      <!-- End Sell Price -->
+      <EditBox name="$parent_NameEB" autoFocus="false">
+      	<Size x="150" y="32" />
+      	<Anchors>
+          <Anchor point="LEFT" relativeTo="$parentNameInputTitle" relativePoint="RIGHT">
+            <Offset>
+            	<AbsDimension  x="0" y="-2"/>
+          	</Offset>
+        	</Anchor>
+        </Anchors>
+      	<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+        	<BackgroundInsets>
+        		<AbsInset left="2" right="2" top="2" bottom="2" />
+        	</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="16" />
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="16" />
+					</EdgeSize>
+					<Color r="0" g="0" b="0" a="0.8" />
+					<BorderColor r="1" g="1" b="1" a="0.8" />
+        </Backdrop>
+        <TextInsets>
+        	<AbsInset left="8" right="8" top="0" bottom="0" />
+        </TextInsets>
+        <Scripts>
+	        <OnLoad>
+	        </OnLoad>
+	  	  </Scripts>
+	    	<FontString inherits="ChatFontNormal" />
+      </EditBox>
+      <Button name="$parent_NameSaveButton" inherits="OptionsButtonTemplate" text="Save">
+       <Anchors>
+          <Anchor point="TOP">
+            <Offset>
+            	<AbsDimension x="200" y="-400"/>
+          	</Offset>
+        	</Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+          	LootFast2.Config.NameSaveClick()
+        	</OnClick>
+      	</Scripts>
+      </Button>
+      <Button name="$parent_NameClearButton" inherits="OptionsButtonTemplate" text="Clear All">
+       <Anchors>
+          <Anchor point="TOP">
+            <Offset>
+            	<AbsDimension x="-200" y="-400"/>
+          	</Offset>
+        	</Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick>
+          	LootFast2.Config.NameClearClick()
+        	</OnClick>
+      	</Scripts>
+      </Button>
+      <Frame name="$parentSFHolder">
+      	<Anchors>
+					<Anchor point="TOPEFT" relativeTo="$parentNameTitle" relativePoint="LEFT" x="-10" y="-70"/>
+					<Anchor point="BOTTOMRIGHT" relativeKey="$parent.bottomRightCorner" x="-10" y="8"/>
+				</Anchors>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="11" right="11" top="11" bottom="11" />
+					</BackgroundInsets>
+					<TileSize>
+						<AbsValue val="32" />
+					</TileSize>
+					<EdgeSize>
+						<AbsValue val="32" />
+					</EdgeSize>
+        </Backdrop>
+        <Frames>
+        	<ScrollFrame name="$parentNameScrollFrame" parentKey="scrollFrame" inherits="HybridScrollFrameTemplate">
+						<Anchors>
+							<Anchor point="TOPEFT" relativeKey="$parent.topLeftCorner2" x="9" y="-12"/>
+							<Anchor point="BOTTOMRIGHT" relativeKey="$parent.bottomRightCorner" x="-24" y="11"/>
+						</Anchors>
+						<Frames>
+							<Slider name="$parentScrollBar" parentKey="scrollBar" inherits="HybridScrollBarTrimTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativePoint="TOPRIGHT" x="0" y="-10"/>
+									<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT" x="0" y="10"/>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										self.trackBG:Show();
+										self.trackBG:SetVertexColor(0, 0, 0, 1);
+									</OnLoad>
+								</Scripts>
+							</Slider>
+						</Frames>
+					</ScrollFrame>
+        </Frames>
+      </Frame>
+      
+		</Frames>
+		<Scripts>
+	   	<OnLoad>
+ 				LootFast2.Config.OnLoad(self);
+ 			</OnLoad>
+    </Scripts>
+	</Frame>
+	<!--End Main Config-->
+</Ui>

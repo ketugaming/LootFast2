@@ -197,12 +197,17 @@ function LootFast2.OnEvent(event,...)
 	if ( event == "LOOT_OPENED" ) then
 		if( LF2Settings.Enabled == 1) then
 			local i = 1;
-			local icon, name, quan, rare, locked = GetLootSlotInfo(i);
-			while(icon ~= nil) do
-				--ChatFrame1:AddMessage(#LF2Settings.LootQual);
-				--ChatFrame1:AddMessage(name .. ", " .. quan .. ", " .. rare .. ", " .. LF2Settings.LootQual[rare]);
-				--ChatFrame1:AddMessage(strsub(icon, 1, 29) .. " == " .. "Interface\\Icons\\INV_Misc_Coin");
-				if(strsub(icon, 1, 29) == "Interface\\Icons\\INV_Misc_Coin") then
+			local lootIcon, lootName, lootQuantity,nCurr, rarity, locked, isQuest, questId, isActive = GetLootSlotInfo(i);
+			while(lootIcon ~= nil) do
+				-- ChatFrame1:AddMessage(#LF2Settings.LootQual);
+				-- ChatFrame1:AddMessage("name:"..lootName);
+				-- ChatFrame1:AddMessage("quantity:" .. tostring(lootQuantity));
+				-- ChatFrame1:AddMessage("curr:" .. tostring(nCurr));
+				-- ChatFrame1:AddMessage("rareity:" .. tostring(rarity));
+				-- ChatFrame1:AddMessage("LootQual: " .. tostring(LF2Settings.LootQual[rarity]));
+				-- ChatFrame1:AddMessage(lootName .. ", " .. lootQuantity .. ", " .. rarity .. ", " .. tostring(LF2Settings.LootQual[rarity]));
+				-- ChatFrame1:AddMessage(strsub(icon, 1, 29) .. " == " .. "Interface\\Icons\\INV_Misc_Coin");
+				if(strsub(lootIcon, 1, 29) == "Interface\\Icons\\INV_Misc_Coin") then
 					--Loot Money
 					if(LF2Settings.LootQual[-1] == nil) then
 						LF2Settings.LootQual[-1] = 1;
@@ -216,26 +221,35 @@ function LootFast2.OnEvent(event,...)
 					local priceok = false;
 					--Check Sell Price
 					if(itemlink ~= nil)then
-						--ChatFrame1:AddMessage("LF2 DEBUG: Item Link: "..itemlink);
+						-- ChatFrame1:AddMessage("LF2 DEBUG: Item Link: "..itemlink);
 						local price = select(11, GetItemInfo(itemlink));
-						--ChatFrame1:AddMessage("LF2 DEBUG: Item Price: "..GetCoinTextureString(price));
+						-- ChatFrame1:AddMessage("LF2 DEBUG: Item Price: "..GetCoinTextureString(price));
 						if(price == 0 or price == nil) then
 							priceok = true;
-							--ChatFrame1:AddMessage("LF2 DEBUG: "..itemlink.." No Sell Price");
+							-- ChatFrame1:AddMessage("LF2 DEBUG: "..itemlink.." No Sell Price");
 						elseif(price >= LF2Settings.PriceThresh)then
 							priceok = true;
 						else
 							priceok = false;
-							--ChatFrame1:AddMessage("LF2 DEBUG: "..itemlink.." Sell Price did not meet threshhold.");
+							-- ChatFrame1:AddMessage("LF2 DEBUG: "..itemlink.." Sell Price did not meet threshhold.");
 						end
 					else
 						priceok = true;
 					end
 					--Check Quality
 					if(priceok) then
-						if(LF2Settings.LootQual[rare] >= 1 or ((LF2Settings.LootName[name] ~= nil and LF2Settings.LootName[name] >= 1) and LF2Settings.AllBut == 0) or (not ((LF2Settings.LootName[name] ~= nil and LF2Settings.LootName[name] >= 1)) and LF2Settings.AllBut >= 1)) then
+						-- ChatFrame1:AddMessage("LF2 DEBUG: "..tostring(LF2Settings.LootQual[rarity]));
+						-- ChatFrame1:AddMessage("LF2 DEBUG: "..tostring(LF2Settings.LootName[name]));
+						-- ChatFrame1:AddMessage("LF2 DEBUG: "..tostring(LF2Settings.AllBut));
+						if(
+							(LF2Settings.LootQual[rarity] ~= nil and LF2Settings.LootQual[rarity] >= 1) or 
+						((LF2Settings.LootName[name] ~= nil and LF2Settings.LootName[name] >= 1) and 
+						LF2Settings.AllBut == 0) or 
+						(not ((LF2Settings.LootName[name] ~= nil and 
+						LF2Settings.LootName[name] >= 1)) and 
+						LF2Settings.AllBut >= 1)) then
 							LootSlot(i);
-							if(LF2Settings.LootQual[rare] >= 3 or ((LF2Settings.LootName[name] ~= nil and LF2Settings.LootName[name] >= 3) and LF2Settings.AllBut == 0) or (not ((LF2Settings.LootName[name] ~= nil and LF2Settings.LootName[name] >= 1)) and LF2Settings.AllBut >= 3)) then
+							if(LF2Settings.LootQual[rarity] >= 3 or ((LF2Settings.LootName[name] ~= nil and LF2Settings.LootName[name] >= 3) and LF2Settings.AllBut == 0) or (not ((LF2Settings.LootName[name] ~= nil and LF2Settings.LootName[name] >= 1)) and LF2Settings.AllBut >= 3)) then
 								ConfirmLootSlot(i);
 							end
 						end
@@ -243,7 +257,7 @@ function LootFast2.OnEvent(event,...)
 				end
 
 				i = i + 1;
-				icon, name, quan, rare = GetLootSlotInfo(i);
+				lootIcon, lootName, lootQuantity,nCurr, rarity, locked, isQuest, questId, isActive = GetLootSlotInfo(i);
 			end
 			if(LF2Settings.closeLoot <= 0) then
 				if(LF2Settings.closeLoot == 0) then

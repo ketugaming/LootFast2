@@ -1,0 +1,25 @@
+#########################################################################################
+# File: f:\Games\World of Warcraft\_classic_\Interface\Addons\LootFast2\pkgmeta.yaml    #
+#                                                                                       #
+# File Overview: CurseForge package file                                                #
+#                                                                                       #
+# Project: LootFast2                                                                    #
+#                                                                                       #
+# Project Path: f:\Games\World of Warcraft\_classic_\Interface\Addons\LootFast2         #
+#                                                                                       #
+# Created Date: Tuesday, September 1st 2020, 12:01:30 pm                                #
+#                                                                                       #
+# Author: Ketutastic                                                                    #
+# ___                                                                                   #
+# Last Modified: Tuesday, September 1st 2020, 12:03:32 pm                               #
+#                                                                                       #
+# Modified By: Ketutastic                                                               #
+# ___                                                                                   #
+# Copyright (c) 2020 Ketu Gaming                                                        #
+# ___                                                                                   #
+#########################################################################################
+
+#ignore: # Files and directories beginning with a dot (such as .git) are automatically ignored, as is the pgkmeta file itself.
+#    - changelog.txt
+
+manual-changelog: changelog.txt

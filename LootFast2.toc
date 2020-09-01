@@ -1,13 +1,13 @@
 ## Interface: 80300
-## Title: LootFast2 |cFFEE0000v7.2.0.04112017-1|r
+## Title: LootFast2 |cFFEE0000v8.3.0.09012020|r
 ## Author: Kajikami, Ketutastic
 ## Notes: Allows you to specify by name or quality what loot to pick up when looting bodies.
 ## OptionalDeps: LibDBIcon-1.0
 ## Dependencies:
-## Version: 7.2.0.04112017-1
+## Version: 8.3.0.09012020
 ## SavedVariablesPerCharacter: LF2Settings
 ## X-Date: 2017-04-11T00:00:00Z
-## X-Curse-Packaged-Version: v7.2.0.04112017-1
+## X-Curse-Packaged-Version: v8.3.0.09012020
 ## X-Curse-Project-Name: LootFast2
 ## X-Curse-Project-ID: lootfast2
 ## X-Curse-Repository-ID: wow/lootfast2/mainline

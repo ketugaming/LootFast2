@@ -1,0 +1,202 @@
+{
+    // Configure glob patterns for excluding files and folders in the file explorer.
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/bower_components": true,
+        "**/coverage": true,
+        "**/lib-amd": true,
+        "src/**/*.scss.ts": true,
+        "**/node_modules": true,
+        "**/lib": true,
+        "**/dist": true
+    },
+    "psi-header.changes-tracking": {
+        "isActive": true,
+        "modAuthor": "Modified By: ",
+        "modDate": "Last Modified: ",
+        "modDateFormat": "dddd, MMMM Do YYYY, h:mm:ss a",
+        "include": [],
+        "exclude": [
+            "markdown",
+            "json"
+        ],
+        "excludeGlob": [],
+        "autoHeader": "manualSave",
+        "replace": [
+            "filepath",
+            "projectpath",
+            "modAuthor",
+            "modDate",
+            "projectname"
+        ]
+    },
+    "psi-header.license-text": [
+        "This code may not be used for any reason outside of Medical Marketing Economics, LLC."
+    ],
+    "psi-header.variables": [
+        [
+            "company",
+            "Ketu Gaming"
+        ],
+        [
+            "author",
+            "Ketutastic"
+        ]
+    ],
+    "psi-header.lang-config": [
+        {
+            "language": "yaml",
+            "begin": "################################################################################",
+            "prefix": "# ",
+            "suffix": " #",
+            "end": "################################################################################",
+            "blankLinesAfter": 1,
+            "forceToTop": true,
+        },
+        {
+            "language": "powershell",
+            "begin": "################################################################################",
+            "prefix": "# ",
+            "suffix": " #",
+            "end": "################################################################################",
+            "blankLinesAfter": 1,
+            "forceToTop": true,
+        },
+        {
+            "language": "javascript",
+            "begin": "/**",
+            "prefix": " * ",
+            "end": " */",
+            "blankLinesAfter": 2,
+            "forceToTop": false
+        },
+        {
+            "language": "lua",
+            "begin": "--[[",
+            "prefix": " ",
+            "end": " ]]",
+            "blankLinesAfter": 1,
+            "forceToTop": true
+        },
+        {
+            "language": "typescript",
+            "mapTo": "javascript"
+        },
+        {
+            "language": "typescriptreact",
+            "mapTo": "javascript"
+        }
+    ],
+    "psi-header.templates": [
+        {
+            "language": "*",
+            "template": [
+                "File: <<filepath>>",
+                "",
+                "File Overview: ",
+                "",
+                "Project: <<projectname>>",
+                "",
+                "Project Path: <<projectpath>>",
+                "",
+                "Created Date: <<filecreated('dddd, MMMM Do YYYY, h:mm:ss a')>>",
+                "",
+                "Author: <<author>>",
+                "___",
+                "Last Modified: ",
+                "",
+                "Modified By: ",
+                "___",
+                "Copyright (c) <<year>> <<company>>",
+                "___"
+            ]
+        },
+        {
+            "language": "typescript",
+            "mapTo": "javascript"
+        },
+        {
+            "language": "typescriptreact",
+            "mapTo": "javascript"
+        }
+    ],
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "type": "line",
+            "foreground": "#FF8C00",
+            "iconColour": "#FF8C00",
+            "background": "#FFC680",
+            "opacity": 30
+        },
+        "LATER": {
+            "icon": "clock",
+            "type": "line",
+            "foreground": "#3b5998",
+            "iconColour": "#3b5998"
+        },
+        "FIXME": {
+            "icon": "alert",
+            "type": "line",
+            "foreground": "#F44336",
+            "iconColour": "#F44336",
+            "background": "#FAA19B",
+            "opacity": 30
+        },
+        "QUESTION": {
+            "icon": "question",
+            "type": "line",
+            "foreground": "#3498DB",
+            "iconColour": "#3498DB"
+        },
+        "NOTE": {
+            "icon": "note",
+            "type": "line",
+            "foreground": "#FFB300",
+            "iconColour": "#FFB300"
+        },
+        "REVIEW": {
+            "icon": "person",
+            "type": "line",
+            "foreground": "#64DD17",
+            "iconColour": "#64DD17"
+        },
+        "#region": {
+            "icon": "code",
+            "type": "line",
+            "foreground": "#9B00FF",
+            "background": "#270040",
+            "opacity": 80,
+            "iconColour": "#9B00FF",
+            "hideFromTree": true
+        },
+        "#endregion": {
+            "icon": "code",
+            "type": "line",
+            "foreground": "#9B00FF",
+            "background": "#270040",
+            "opacity": 80,
+            "iconColour": "#9B00FF",
+            "hideFromTree": true
+        }
+    },
+    "todo-tree.general.rootFolder": "${workspaceFolder}/",
+    "todo-tree.general.tags": [
+        "TODO",
+        "FIXME",
+        "LATER",
+        "QUESTION",
+        "NOTE",
+        "REVIEW",
+        "#region",
+        "#endregion"
+    ],
+    "todo-tree.filtering.excludeGlobs": [
+        "**/node-modules/*",
+        "**/.vscode/*"
+    ],
+    "todo-tree.regex.regex": "((--|--\\[\\[|//|#|<!--|;|/\\*)\\s*($TAGS)|^\\s*- \\[ \\])",
+    "todo-tree.general.enableFileWatcher": true,
+    "insertDateString.format": "iso"
+}

@@ -1,4 +1,5 @@
-<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
 	<Script file="LootFast2_Config.lua"/>
 	<!--Main Config-->
@@ -39,11 +40,11 @@
 					<AbsDimension x="20" y="20"/>
 				</Size>
 				<Anchors>
-						<Anchor point="RIGHT" relativeTo="$parent" relativePoint="RIGHT">
-							<Offset>
-								<AbsDimension x="-20" y="0"/>
-							</Offset>
-						</Anchor>
+					<Anchor point="RIGHT" relativeTo="$parent" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="-20" y="0"/>
+						</Offset>
+					</Anchor>
 				</Anchors>
 				<Scripts>
 					<OnClick>
@@ -65,7 +66,7 @@
 			</OnLoad>
 		</Scripts>
 	</Button>
-	
+
 	<Frame name="LootFastConfig">
 		<Layers>
 			<Layer level="ARTWORK">
@@ -240,7 +241,7 @@
 						</Anchor>
 					</Anchors>
 				</FontString>
-				<FontString name="$parentSPNote" inherits="GameFontNormal" >
+				<FontString name="$parentSPNote" inherits="GameFontNormal">
 					<Anchors>
 						<Anchor point="TOPLEFT" relativeTo="$parentSPCopper" relativePoint="BOTTOMLEFT">
 							<Offset>
@@ -280,47 +281,52 @@
 		</Layers>
 		<Frames>
 			<CheckButton name="$parent_MinimapCB" inherits="OptionsCheckButtonTemplate">
-       <Anchors>
-          <Anchor point="LEFT" relativeTo="$parentMinimapTitle" relativePoint="RIGHT">
-            <Offset>
-            	<AbsDimension  x="0" y="-2"/>
-          	</Offset>
-        	</Anchor>
-        </Anchors>
-        <Scripts>
-          <OnClick>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentMinimapTitle" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="-2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
           	LootFast2.Config.MinimapCBToggle(self)
-        	</OnClick>
-      	</Scripts>
-      </CheckButton>
-      <CheckButton name="$parent_EnabledCB" inherits="OptionsCheckButtonTemplate">
-       <Anchors>
-          <Anchor point="LEFT" relativeTo="$parentEnabledTitle" relativePoint="RIGHT">
-            <Offset>
-            	<AbsDimension  x="0" y="-2"/>
-          	</Offset>
-        	</Anchor>
-        </Anchors>
-        <Scripts>
-          <OnClick>
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			<CheckButton name="$parent_EnabledCB" inherits="OptionsCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentEnabledTitle" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="-2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
           	LootFast2.Config.EnabledCBToggle(self)
-        	</OnClick>
-      	</Scripts>
-      </CheckButton>
-      <!-- Sell Price -->
-      <EditBox name="$parent_SPGoldEB" autoFocus="false">
-      	<Size x="100" y="24" />
-      	<Anchors>
-          <Anchor point="LEFT" relativeTo="$parentSPGold" relativePoint="RIGHT">
-            <Offset>
-            	<AbsDimension  x="0" y="0"/>
-          	</Offset>
-        	</Anchor>
-        </Anchors>
-      	<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
-        	<BackgroundInsets>
-        		<AbsInset left="2" right="2" top="2" bottom="2" />
-        	</BackgroundInsets>
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			<!-- Sell Price -->
+			<EditBox name="$parent_SPGoldEB" autoFocus="false" inherits="BackdropTemplate">
+				<!-- <KeyValues>
+					<KeyValue key="backdropInfo" value="BACKDROP_TOOLTIP_16_16_5555" type="global"/>
+					<KeyValue key="backdropBorderColor" value="LEGENDARY_ORANGE_COLOR" type="global"/>
+					<KeyValue key="backdropBorderColorAlpha" value="0.25" type="number"/>
+				</KeyValues> -->
+				<Size x="100" y="24" />
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentSPGold" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<!-- <Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="2" right="2" top="2" bottom="2" />
+					</BackgroundInsets>
 					<TileSize>
 						<AbsValue val="16" />
 					</TileSize>
@@ -329,29 +335,29 @@
 					</EdgeSize>
 					<Color r="0" g="0" b="0" a="0.8" />
 					<BorderColor r="1" g="1" b="1" a="0.8" />
-        </Backdrop>
-        <TextInsets>
-        	<AbsInset left="8" right="8" top="0" bottom="0" />
-        </TextInsets>
-        <Scripts>
-	        <OnLoad>
-	        </OnLoad>
-	  	  </Scripts>
-	    	<FontString inherits="ChatFontNormal" />
-      </EditBox>
-      <EditBox name="$parent_SPSilverEB" autoFocus="false">
-      	<Size x="100" y="24" />
-      	<Anchors>
-          <Anchor point="LEFT" relativeTo="$parentSPSilver" relativePoint="RIGHT">
-            <Offset>
-            	<AbsDimension  x="0" y="0"/>
-          	</Offset>
-        	</Anchor>
-        </Anchors>
-      	<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
-        	<BackgroundInsets>
-        		<AbsInset left="2" right="2" top="2" bottom="2" />
-        	</BackgroundInsets>
+				</Backdrop> -->
+				<TextInsets>
+					<AbsInset left="8" right="8" top="0" bottom="0" />
+				</TextInsets>
+				<Scripts>
+					<OnLoad>
+					</OnLoad>
+				</Scripts>
+				<FontString inherits="ChatFontNormal" />
+			</EditBox>
+			<EditBox name="$parent_SPSilverEB" autoFocus="false" inherits="BackdropTemplate">
+				<Size x="100" y="24" />
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentSPSilver" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<!-- <Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="2" right="2" top="2" bottom="2" />
+					</BackgroundInsets>
 					<TileSize>
 						<AbsValue val="16" />
 					</TileSize>
@@ -360,29 +366,29 @@
 					</EdgeSize>
 					<Color r="0" g="0" b="0" a="0.8" />
 					<BorderColor r="1" g="1" b="1" a="0.8" />
-        </Backdrop>
-        <TextInsets>
-        	<AbsInset left="8" right="8" top="0" bottom="0" />
-        </TextInsets>
-        <Scripts>
-	        <OnLoad>
-	        </OnLoad>
-	  	  </Scripts>
-	    	<FontString inherits="ChatFontNormal" />
-      </EditBox>
-      <EditBox name="$parent_SPCopperEB" autoFocus="false">
-      	<Size x="100" y="24" />
-      	<Anchors>
-          <Anchor point="LEFT" relativeTo="$parentSPCopper" relativePoint="RIGHT">
-            <Offset>
-            	<AbsDimension  x="0" y="0"/>
-          	</Offset>
-        	</Anchor>
-        </Anchors>
-      	<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
-        	<BackgroundInsets>
-        		<AbsInset left="2" right="2" top="2" bottom="2" />
-        	</BackgroundInsets>
+				</Backdrop> -->
+				<TextInsets>
+					<AbsInset left="8" right="8" top="0" bottom="0" />
+				</TextInsets>
+				<Scripts>
+					<OnLoad>
+					</OnLoad>
+				</Scripts>
+				<FontString inherits="ChatFontNormal" />
+			</EditBox>
+			<EditBox name="$parent_SPCopperEB" autoFocus="false" inherits="BackdropTemplate">
+				<Size x="100" y="24" />
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentSPCopper" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<!-- <Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="2" right="2" top="2" bottom="2" />
+					</BackgroundInsets>
 					<TileSize>
 						<AbsValue val="16" />
 					</TileSize>
@@ -391,44 +397,44 @@
 					</EdgeSize>
 					<Color r="0" g="0" b="0" a="0.8" />
 					<BorderColor r="1" g="1" b="1" a="0.8" />
-        </Backdrop>
-        <TextInsets>
-        	<AbsInset left="8" right="8" top="0" bottom="0" />
-        </TextInsets>
-        <Scripts>
-	        <OnLoad>
-	        </OnLoad>
-	  	  </Scripts>
-	    	<FontString inherits="ChatFontNormal" />
-      </EditBox>
-      <Button name="$parent_SPSaveButton" inherits="OptionsButtonTemplate" text="Set Threshold">
-       <Anchors>
-          <Anchor point="LEFT" relativeTo="$parent_SPSilverEB" relativePoint="RIGHT">
-            <Offset>
-            	<AbsDimension x="20" y="0"/>
-          	</Offset>
-        	</Anchor>
-        </Anchors>
-        <Scripts>
-          <OnClick>
+				</Backdrop> -->
+				<TextInsets>
+					<AbsInset left="8" right="8" top="0" bottom="0" />
+				</TextInsets>
+				<Scripts>
+					<OnLoad>
+					</OnLoad>
+				</Scripts>
+				<FontString inherits="ChatFontNormal" />
+			</EditBox>
+			<Button name="$parent_SPSaveButton" inherits="OptionsButtonTemplate" text="Set Threshold">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parent_SPSilverEB" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="20" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
           	LootFast2.Config.SetPriceThresholdButtonClick()
-        	</OnClick>
-      	</Scripts>
-      </Button>
-      <!-- End Sell Price -->
-      <EditBox name="$parent_NameEB" autoFocus="false">
-      	<Size x="150" y="32" />
-      	<Anchors>
-          <Anchor point="LEFT" relativeTo="$parentNameInputTitle" relativePoint="RIGHT">
-            <Offset>
-            	<AbsDimension  x="0" y="-2"/>
-          	</Offset>
-        	</Anchor>
-        </Anchors>
-      	<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
-        	<BackgroundInsets>
-        		<AbsInset left="2" right="2" top="2" bottom="2" />
-        	</BackgroundInsets>
+					</OnClick>
+				</Scripts>
+			</Button>
+			<!-- End Sell Price -->
+			<EditBox name="$parent_NameEB" autoFocus="false" inherits="BackdropTemplate">
+				<Size x="150" y="32" />
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentNameInputTitle" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="0" y="-2"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+					<BackgroundInsets>
+						<AbsInset left="2" right="2" top="2" bottom="2" />
+					</BackgroundInsets>
 					<TileSize>
 						<AbsValue val="16" />
 					</TileSize>
@@ -437,46 +443,46 @@
 					</EdgeSize>
 					<Color r="0" g="0" b="0" a="0.8" />
 					<BorderColor r="1" g="1" b="1" a="0.8" />
-        </Backdrop>
-        <TextInsets>
-        	<AbsInset left="8" right="8" top="0" bottom="0" />
-        </TextInsets>
-        <Scripts>
-	        <OnLoad>
-	        </OnLoad>
-	  	  </Scripts>
-	    	<FontString inherits="ChatFontNormal" />
-      </EditBox>
-      <Button name="$parent_NameSaveButton" inherits="OptionsButtonTemplate" text="Save">
-       <Anchors>
-          <Anchor point="TOP">
-            <Offset>
-            	<AbsDimension x="200" y="-400"/>
-          	</Offset>
-        	</Anchor>
-        </Anchors>
-        <Scripts>
-          <OnClick>
+				</Backdrop>
+				<TextInsets>
+					<AbsInset left="8" right="8" top="0" bottom="0" />
+				</TextInsets>
+				<Scripts>
+					<OnLoad>
+					</OnLoad>
+				</Scripts>
+				<FontString inherits="ChatFontNormal" />
+			</EditBox>
+			<Button name="$parent_NameSaveButton" inherits="OptionsButtonTemplate" text="Save">
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset>
+							<AbsDimension x="200" y="-400"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
           	LootFast2.Config.NameSaveClick()
-        	</OnClick>
-      	</Scripts>
-      </Button>
-      <Button name="$parent_NameClearButton" inherits="OptionsButtonTemplate" text="Clear All">
-       <Anchors>
-          <Anchor point="TOP">
-            <Offset>
-            	<AbsDimension x="-200" y="-400"/>
-          	</Offset>
-        	</Anchor>
-        </Anchors>
-        <Scripts>
-          <OnClick>
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parent_NameClearButton" inherits="OptionsButtonTemplate" text="Clear All">
+				<Anchors>
+					<Anchor point="TOP">
+						<Offset>
+							<AbsDimension x="-200" y="-400"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
           	LootFast2.Config.NameClearClick()
-        	</OnClick>
-      	</Scripts>
-      </Button>
-      <Frame name="$parentSFHolder">
-      	<Anchors>
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Frame name="$parentSFHolder" inherits="BackdropTemplate">
+				<Anchors>
 					<Anchor point="TOPEFT" relativeTo="$parentNameTitle" relativePoint="LEFT" x="-10" y="-70"/>
 					<Anchor point="BOTTOMRIGHT" relativeKey="$parent.bottomRightCorner" x="-10" y="8"/>
 				</Anchors>
@@ -490,9 +496,9 @@
 					<EdgeSize>
 						<AbsValue val="32" />
 					</EdgeSize>
-        </Backdrop>
-        <Frames>
-        	<ScrollFrame name="$parentNameScrollFrame" parentKey="scrollFrame" inherits="HybridScrollFrameTemplate">
+				</Backdrop>
+				<Frames>
+					<ScrollFrame name="$parentNameScrollFrame" parentKey="scrollFrame" inherits="HybridScrollFrameTemplate">
 						<Anchors>
 							<Anchor point="TOPEFT" relativeKey="$parent.topLeftCorner2" x="9" y="-12"/>
 							<Anchor point="BOTTOMRIGHT" relativeKey="$parent.bottomRightCorner" x="-24" y="11"/>
@@ -512,15 +518,15 @@
 							</Slider>
 						</Frames>
 					</ScrollFrame>
-        </Frames>
-      </Frame>
-      
+				</Frames>
+			</Frame>
+
 		</Frames>
 		<Scripts>
-	   	<OnLoad>
+			<OnLoad>
  				LootFast2.Config.OnLoad(self);
- 			</OnLoad>
-    </Scripts>
+			</OnLoad>
+		</Scripts>
 	</Frame>
 	<!--End Main Config-->
 </Ui>

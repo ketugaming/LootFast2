@@ -8,6 +8,6 @@ Warning: this mod is intended to be used for soloing/grinding. It is not intende
 
 This latest version includes an options GUI to assist in setting up LootFast to your liking.
 
-## Known Issues:
+## Known Issues
 
 * Sometimes the options GUI will not load your name filters. To fix this, just reopen the options GUI and they should appear in the name filter list.

@@ -184,6 +184,8 @@ function LootFast2.OnEvent(event,...)
 
 			LootFast2.InitLDB();
 			LootFast2.Config.InitConfigDropDowns();
+
+			DEFAULT_CHAT_FRAME:AddMessage("|cFFEE0000LootFast2|r: v9.0.0.10132020 Loaded!")
 		end
 	end
 	if(event == "PLAYER_ENTERING_WORLD") then
@@ -206,8 +208,18 @@ function LootFast2.OnEvent(event,...)
 				-- ChatFrame1:AddMessage("rareity:" .. tostring(rarity));
 				-- ChatFrame1:AddMessage("LootQual: " .. tostring(LF2Settings.LootQual[rarity]));
 				-- ChatFrame1:AddMessage(lootName .. ", " .. lootQuantity .. ", " .. rarity .. ", " .. tostring(LF2Settings.LootQual[rarity]));
-				-- ChatFrame1:AddMessage(strsub(icon, 1, 29) .. " == " .. "Interface\\Icons\\INV_Misc_Coin");
-				if(strsub(lootIcon, 1, 29) == "Interface\\Icons\\INV_Misc_Coin") then
+				-- ChatFrame1:AddMessage("lootIcon:" .. tostring(lootIcon));
+				-- ChatFrame1:AddMessage(strsub(lootIcon, 1, 29) .. " == " .. "Interface\\Icons\\INV_Misc_Coin");
+				if(
+					--string.find(lootName,"gold")
+					--strsub(lootIcon, 1, 29) == "Interface\\Icons\\INV_Misc_Coin" or
+					lootIcon == 133784 or --Gold Lots Icon
+					lootIcon == 133785 or --Gold Some Icon
+					lootIcon == 133786 or --Silver Lots Icon
+					lootIcon == 133787 or --Silver Some Icon
+					lootIcon == 133788 or --Copper Lots Icon
+					lootIcon == 133789 --Copper Some Icon
+				) then
 					--Loot Money
 					if(LF2Settings.LootQual[-1] == nil) then
 						LF2Settings.LootQual[-1] = 1;

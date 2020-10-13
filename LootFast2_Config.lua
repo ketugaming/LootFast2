@@ -8,7 +8,7 @@ function LootFast2.Config.OnLoad(panel)
 	end
 	InterfaceOptions_AddCategory(panel);
 
-	LootFastConfigTitle:SetText("LootFast2 v7.2.0.04112017-1");
+	LootFastConfigTitle:SetText("LootFast2 v9.0.0.10132020");
 	LootFastConfigSubTitle:SetText("|cFFFFFFFFConfiguration|r");
 	LootFastConfigMinimapTitle:SetText("Show Minimap Button: ");
 	LootFastConfigEnabledTitle:SetText("Enable LootFast: ");
@@ -157,6 +157,23 @@ function LootFast2.Config.InitConfigDropDowns()
 	UIDropDownMenu_SetWidth(NameDD, 125);
 	UIDropDownMenu_Initialize(NameDD, LootFast2.Config.InitNameDropDown);
 	UIDropDownMenu_SetSelectedValue(NameDD, 1);
+
+	--Set Backdrops for text fields/areas
+	LootFastConfig_SPGoldEB:SetBackdrop(BACKDROP_TEXT_PANEL_0_16);
+	-- LootFastConfig_SPGoldEB:SetBackdrop(
+	-- 	{
+	-- 		bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+	-- 		edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+	-- 		tile = true,
+	-- 		tileEdge = true,
+	-- 		tileSize = 16,
+	-- 		edgeSize = 16,
+	-- 		insets = { left = 2, right = 2, top = 2, bottom = 2 },
+	-- 	});
+	LootFastConfig_SPSilverEB:SetBackdrop(BACKDROP_TEXT_PANEL_0_16);
+	LootFastConfig_SPCopperEB:SetBackdrop(BACKDROP_TEXT_PANEL_0_16);
+	LootFastConfig_NameEB:SetBackdrop(BACKDROP_TEXT_PANEL_0_16);
+	LootFastConfigSFHolder:SetBackdrop(BACKDROP_DIALOG_32_32);
 end
 function LootFast2.Config.CloseDropDownClick(self,arg1)
 	--DEFAULT_CHAT_FRAME:AddMessage("LootFast: "..arg1);
